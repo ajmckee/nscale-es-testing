@@ -5,6 +5,10 @@ exports.name = 'esaj';
 exports.namespace = 'esaj';
 exports.id = '2541616a-5d56-4690-aecd-bb6fd3224b6f';
 
+exports.root = {
+	type: 'blank-container'
+};
+
 exports.topology = {
 	local: {
 		root: ['elasticsearch']
