@@ -10,7 +10,26 @@
     },
     {
       "type": "docker",
-      "id": "elasticsearch",
+      "specific": {
+        "name": "dockerfile/elasticsearch:latest",
+        "execute": {
+          "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
+          "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=localhost --network.publish_host=__TARGETIP__"
+        }
+      },
+      "id": "elasticsearch$dockerfile.elasticsearch_latest",
+      "name": "elasticsearch"
+    },
+    {
+      "type": "docker",
+      "specific": {
+        "name": "dockerfile/elasticsearch:latest",
+        "execute": {
+          "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
+          "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=localhost --network.publish_host=__TARGETIP__"
+        }
+      },
+      "id": "elasticsearch$dockerfile.elasticsearch_latest",
       "name": "elasticsearch"
     }
   ],
@@ -22,17 +41,23 @@
         "containerDefinitionId": "root",
         "type": "blank-container",
         "contains": [
-          "elasticsearch-c31f912e"
+          "elasticsearch-c31f912e$dockerfile.elasticsearch_latest"
         ],
         "specific": {}
       },
-      "elasticsearch-c31f912e": {
-        "id": "elasticsearch-c31f912e",
+      "elasticsearch-c31f912e$dockerfile.elasticsearch_latest": {
+        "id": "elasticsearch-c31f912e$dockerfile.elasticsearch_latest",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "elasticsearch",
+        "containerDefinitionId": "elasticsearch$dockerfile.elasticsearch_latest",
         "type": "docker",
         "contains": [],
-        "specific": {}
+        "specific": {
+          "name": "dockerfile/elasticsearch:latest",
+          "execute": {
+            "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
+            "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=localhost --network.publish_host=__TARGETIP__"
+          }
+        }
       }
     },
     "name": "local"
