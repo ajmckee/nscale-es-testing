@@ -13,8 +13,8 @@
       "specific": {
         "name": "dockerfile/elasticsearch:latest",
         "execute": {
-          "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
-          "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=localhost --network.publish_host=__TARGETIP__"
+          "args": "-d -p 9200:9200 -p 9300:9300 -p 54328:54328 -v /mnt/elasticsearch:/data",
+          "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__ --discovery.zen.ping.unicast.hosts=172.31.30.52,172.31.30.51"
         }
       },
       "id": "elasticsearch$dockerfile.elasticsearch_latest",
@@ -42,8 +42,8 @@
         "specific": {
           "name": "dockerfile/elasticsearch:latest",
           "execute": {
-            "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
-            "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=localhost --network.publish_host=__TARGETIP__"
+            "args": "-d -p 9200:9200 -p 9300:9300 -p 54328:54328 -v /mnt/elasticsearch:/data",
+            "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__ --discovery.zen.ping.unicast.hosts=172.31.30.52,172.31.30.51"
           }
         }
       }
