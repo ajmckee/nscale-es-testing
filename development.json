@@ -1,0 +1,25 @@
+{
+  "name": "esaj",
+  "namespace": "esaj",
+  "id": "2541616a-5d56-4690-aecd-bb6fd3224b6f",
+  "containerDefinitions": [
+    {
+      "type": "blank-container",
+      "id": "root",
+      "name": "root"
+    }
+  ],
+  "topology": {
+    "containers": {
+      "root-16f4f95b": {
+        "id": "root-16f4f95b",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "root",
+        "type": "blank-container",
+        "contains": [],
+        "specific": {}
+      }
+    },
+    "name": "development"
+  }
+}
